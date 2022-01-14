@@ -1,5 +1,8 @@
 class WidgetsController < ApplicationController
   before_action :set_widget, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :index,  :update, :destroy]
+  before_action :load_user 
+  
 
   # GET /widgets or /widgets.json
   def index
@@ -58,6 +61,11 @@ class WidgetsController < ApplicationController
   end
 
   private
+  
+    def load_user
+      @user = current_user
+    end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_widget
       @widget = Widget.find(params[:id])

@@ -1,4 +1,6 @@
-<%= form_with(model: widget) do |form| %>
+<div class="h-50 overflow-auto" style="margin-bottom: 5rem;">
+
+<%= form_with(model: widget) do |f| %>
   <% if widget.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(widget.errors.count, "error") %> prohibited this widget from being saved:</h2>
@@ -10,8 +12,75 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="form-group container p-3">
+    
+    
+    
+    
+    <div class="row p-2">
+        <div class="col-lg">
+        <label for="exampleInputPassword1">Banner type</label>
+             <%= f.select :type, ['Top Banner Alert', 'Top Banner Notice'], class: 'form-control' %> 
+     
+           <br>
+           <small id="emailHelp" class="form-text text-muted"> Choosing banner type controls the design, color, and position the pop-up banner appears.</small>  
+          
+        </div>
+          
+      </div>
+    
+    
+    <div class="row p-2">
+    <div class="col-sm">
+      <label for="exampleInputPassword1">Activation date </label>
+     <%= f.text_field :activation, label: false, placeholder: "Date and time", class: 'form-control' %>
+    </div>
+    <div class="col-sm">
+      <label for="exampleInputPassword1">Expiration date </label>
+     <%= f.text_field :expire, label: false, placeholder: "Date and time", class: 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    </div>
+ 
+    
+    
+       <div class="row p-2">
+        <div class="col mb-2">
+           
+        <label for="exampleInputEmail1">Title</label>
+         <%= f.text_field :name, label: false, placeholder: "Internal name for the banner", class: 'form-control' %>
+        </div>
+        <div class="w-100"></div>
+          <div class="col mb-2">
+              <label for="exampleInputPassword1">Banner link</label>
+               <%= f.text_field :button, label: false, placeholder: "Enter full link https://example.com", class: 'form-control' %>
+    
+          </div>
+          
+          <div class="w-100"></div>
+          
+             <div class="col w-100">
+                <label for="exampleInputPassword1">Banner text</label>
+                 <%= f.text_area :message, label: false, placeholder: "Enter text that should display on the banner", class: 'form-control' %>
+                     <br> 
+
+              </div>
+          
+      </div>
+
+
+  
+     
+     
+  </div>
+
+
+
+  <div class="actions p-2">
+    <%= f.submit %>
   </div>
 <% end %>
+
+
+</div>
