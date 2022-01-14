@@ -1,0 +1,26 @@
+ <% if current_user %> 
+   <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Postdat</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link <% if current_page?(authenticated_root_path)%> active <% end %>" href="/">Dashboard</a>
+        <a class="nav-link <% if current_page?(new_user_session_path)%> active <% end %>" href="/login">New</a>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      </nav>
+    </div>
+  </header>
+  
+ <% else %> 
+ 
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Postdat</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link <% if current_page?(unauthenticated_root_path)%> active <% end %>" href="/">Home</a>
+        <a class="nav-link <% if current_page?(new_user_session_path)%> active <% end %>" href="/login">Sign in</a>
+        <a class="nav-link <% if current_page?(new_user_registration_path)%> active <% end %>" href="/signup">Sign up</a>
+      </nav>
+    </div>
+  </header>
+  
+  <% end %> 

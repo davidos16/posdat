@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_130152) do
+ActiveRecord::Schema.define(version: 2022_01_14_034909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,23 @@ ActiveRecord::Schema.define(version: 2022_01_13_130152) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "widgets", force: :cascade do |t|
+    t.string "name"
+    t.datetime "count_down"
+    t.text "message"
+    t.boolean "active"
+    t.string "button"
+    t.integer "design"
+    t.string "type"
+    t.datetime "expire"
+    t.boolean "cookie_track"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_widgets_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "widgets", "users"
 end
