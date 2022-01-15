@@ -1,4 +1,62 @@
-<p id="notice"><%= notice %></p>
+<!-- RH: this is bootstrap 5 tabbed panel -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Demo</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Details</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Embed</a>
+  </li>
+</ul>
+
+<div class="container overflow-scroll h-50 p-3"> 
+<div class="tab-content min-vh-100" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+     
+     <div class="container-fluid">
+        <div class="browser-mockup bg-light min-vh-100">
+            <div class="container p-2">
+            <%= render "widgets/banner_show" %>
+            </div>
+        </div> 
+
+        </div>
+</div>
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      
+      <% if @widget.name.present? %> 
+         <p> <b>Name:</b> <%= @widget.name %></p>
+      <% end %>
+      <% if @widget.message.present? %> 
+         <p> <b>Message: </b><%= @widget.message %></p>
+      <% end %>
+     
+     
+     
+      </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="card">
+          <div class="card-body text-secondary font-weight-light">
+            Copy script tag to embed banner on to your website 
+            
+            <div class="text-wrap">
+              <textarea > <script type="text/javascript" src="<%=widget_show_url %>.js"></script></textarea>
+              <div id="copyToClipboard-a" class="clipboard icon"></div>
+            </div>
+                
+    
+          </div>
+        </div>
+  </div>
+</div>
+</div>
+
+
+
+
 
 <%= link_to 'Edit', edit_widget_path(@widget) %> |
 <%= link_to 'Back', widgets_path %>

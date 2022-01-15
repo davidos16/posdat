@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   resources :widgets
-  get 'dashboard/home'
-  get 'pages/home'
+  get '/widget-show/:id', to: 'widget#widget_show', as: :widget_show
   
-  
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: "signup"}
   
   authenticated do

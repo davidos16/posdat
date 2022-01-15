@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_230744) do
+ActiveRecord::Schema.define(version: 2022_01_15_034833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2022_01_14_230744) do
     t.boolean "active"
     t.string "button"
     t.integer "design"
-    t.string "type"
+    t.string "widget_type"
     t.datetime "expire"
     t.boolean "cookie_track"
     t.bigint "user_id", null: false

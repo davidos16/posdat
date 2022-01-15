@@ -1,0 +1,11 @@
+    <div class="alert <% if @widget.widget_type == "Top Banner Alert" %> alert-danger <% else %>  alert-success  <% end %> alert-dismissible fade show" role="alert">
+    
+    <%= @widget.message %>
+    
+        <% if @widget.button.present? %> 
+       <a href="<%= @widget.button %>" target="_blank">  <button type="button" class="btn btn-secondary btn-sm float-end">Learn more </button></a>
+        <% end %>
+   
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>                  
+                                                        

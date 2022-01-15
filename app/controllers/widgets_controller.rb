@@ -1,7 +1,8 @@
 class WidgetsController < ApplicationController
-  before_action :set_widget, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :index,  :update, :destroy]
+  before_action :set_widget, except: %i[ new create index ]
+  before_action :authenticate_user!, except: [:widget_show]
   before_action :load_user 
+  protect_from_forgery except: [:widget_show]
   
 
   # GET /widgets or /widgets.json
@@ -11,6 +12,9 @@ class WidgetsController < ApplicationController
 
   # GET /widgets/1 or /widgets/1.json
   def show
+  end
+  
+  def widget_show
   end
 
   # GET /widgets/new
@@ -24,8 +28,7 @@ class WidgetsController < ApplicationController
 
   # POST /widgets or /widgets.json
   def create
-    @widget = Widget.new(widget_params)
-
+    @widget = current_user.widgets.new(widget_params)
     respond_to do |format|
       if @widget.save
         format.html { redirect_to widget_url(@widget), notice: "Widget was successfully created." }
@@ -73,6 +76,6 @@ class WidgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def widget_params
-      params.fetch(:widget, {})
+        params.require(:widget).permit(:name, :count_down, :message, :button, :widget_type, :design, :expire, :cookie_track, :user_id)
     end
 end
