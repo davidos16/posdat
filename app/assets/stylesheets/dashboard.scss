@@ -12,4 +12,16 @@
 
 .dash-list-item:hover {
     background: slategray;
+    color: #fff;
+}
+
+.dash-list-item .btn {
+     background: slategray;
+     border: 0.05rem solid slategray;
+     color: #fff;
+}
+
+.dash-list-item:hover .btn {
+     background: #fff;
+     color: #000;
 }

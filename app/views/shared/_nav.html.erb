@@ -4,12 +4,13 @@
       <h3 class="masthead-brand">Postdat</h3>
       <nav class="nav nav-masthead justify-content-center">
         <a class="nav-link <% if current_page?(authenticated_root_path)%> active <% end %>" href="/">Dashboard</a>
+            <a class="nav-link <% if current_page?(edit_user_registration_path(current_user))%> active <% end %>" href="<%= edit_user_registration_path(current_user) %>">Account</a>
         <a class="nav-link <% if current_page?(new_widget_path)%> active <% end %>" href="<%= new_widget_path %>">New</a>
         <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
       </nav>
     </div>
   </header>
-  
+ 
  <% else %> 
  
   <header class="masthead mb-auto">

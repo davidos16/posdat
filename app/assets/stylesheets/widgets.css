@@ -48,3 +48,10 @@
 }
 
 
+#myTab li a {
+    color: #fff;
+}
+
+#myTab li a.active {
+    color: #000;
+}

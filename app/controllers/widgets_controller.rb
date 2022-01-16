@@ -44,11 +44,14 @@ class WidgetsController < ApplicationController
   def update
     respond_to do |format|
       if @widget.update(widget_params)
+         @widget.save
+        
+        format.js
         format.html { redirect_to widget_url(@widget), notice: "Widget was successfully updated." }
-        format.json { render :show, status: :ok, location: @widget }
+          
       else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @widget.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
@@ -76,6 +79,6 @@ class WidgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def widget_params
-        params.require(:widget).permit(:name, :count_down, :message, :button, :widget_type, :design, :expire, :cookie_track, :user_id)
+        params.require(:widget).permit(:name, :active, :count_down, :message, :button, :widget_type, :design, :expire, :cookie_track, :user_id)
     end
 end
