@@ -49,7 +49,7 @@
         <div class="col mb-2">
            
         <label for="exampleInputEmail1">Title</label>
-         <%= f.text_field :name, label: false, placeholder: "Internal name for the banner", class: 'form-control' %>
+         <%= f.text_field :name, label: false, required: true, placeholder: "Internal name for the banner", class: 'form-control' %>
         </div>
         <div class="w-100"></div>
           <div class="col mb-2">
@@ -60,10 +60,19 @@
           
           <div class="w-100"></div>
           
-             <div class="col w-100">
+             <div class="col">
                 <label for="exampleInputPassword1">Banner text</label>
-                 <%= f.text_area :message, label: false, placeholder: "Enter text that should display on the banner", class: 'form-control' %>
+                 <%= f.text_area :message, label: false, required: true, placeholder: "Enter text that should display on the banner", class: 'form-control' %>
                      <br> 
+
+              </div>
+               <div class="w-100"></div>
+               <div class="col">
+             
+                <div class="form-check form-switch">
+                  <%= f.check_box :active, label: false, class: 'form-check-input' %>
+                <label class="form-check-label">Widget Active</label>
+                </div>
 
               </div>
           

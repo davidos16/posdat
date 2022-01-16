@@ -11,6 +11,8 @@ class User < ApplicationRecord
     unless user
          user = User.create(
             email: data['email'],
+            omniauth_status: true,
+            omniauth_type: access_token.provider, 
             password: Devise.friendly_token[0,20]
          )
     end
