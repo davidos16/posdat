@@ -6,8 +6,6 @@ ruby '3.0.2'
 
 # essentials
 
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
 # Use Puma as the app server
@@ -31,9 +29,7 @@ gem "omniauth-rails_csrf_protection"
 
 #utilities
 gem 'meta-tags'
-gem 'friendly_id', '~> 5.4.0'
 gem 'sidekiq'
-gem 'local_time'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
